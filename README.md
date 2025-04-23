@@ -1,9 +1,6 @@
-##  Coursework Template ##
 ### CM2040 Database Networks and the Web ###
 
-#### Using this template ####
-
-This template sets you off in the right direction for your coursework. To get started:
+To get started:
 
 * Run ```npm install``` from the project directory to install all the node packages.
 
@@ -22,15 +19,11 @@ You can also run:
 ```npm run clean-db``` to delete the database on Mac or Linux before rebuilding it for a fresh start
 ```npm run clean-db-win``` to delete the database on Windows before rebuilding it for a fresh start
 
-Please also read the document ```Working with this Template.pdf``` for further guidance.
-
 #### Additional libraries used and IMPORTANT information ####
 
 I have utilised Express-session and dotenv for managing user sessions in Express.
 There is a folder called middleware and it contains the authentication file for author-login and also .env file for the password which is 'database' for the login.
 I have also added default data into my settings table for the blog title and username.
-
-#### Preparing for submission ####
 
 Make a copy of your project folder.
 In your copy, delete the following files and folders:
