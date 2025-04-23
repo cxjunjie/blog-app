@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  type="text/css" href="/main.css" />
+    <!--CODES THAT I WROTE START-->
+    <title>Reader Article Page</title>
+</head>
+<body>
+    <h1>Reader Article Page</h1>
+    <h1>Welcome to <%= blogTitle %></h1>
+    <p>Written by <%= authorName %></p>
+    <h1><%= article.title %></h1>
+    <p><%= article.content %></p>
+    <p>Published on: <%= article.published_at %></p>
+    <p>Reads: <%= article.reads %></p>
+    <p>Likes: <%= article.likes %></p>
+
+    <form action="/reader-article/like/<%= article.article_id %>" method="POST">
+        <button type="submit">Like</button>
+    </form>
+
+    <form action="/reader-article/comment/<%= article.article_id %>" method="POST">
+        <div>
+            <label for="commenter_name">Your Name:</label>
+            <input type="text" id="commenter_name" name="commenter_name" required>
+        </div>
+        <div>
+            <label for="comment_text">Comment:</label>
+            <textarea id="comment_text" name="comment_text" rows="4" required></textarea>
+        </div>
+        <div>
+            <button type="submit">Submit Comment</button>
+        </div>
+    </form>
+        <!--CODES THAT I WROTE END-->
+
+    <h2>Comments</h2>
+    <% if (comments.length > 0) { %>
+        <ul>
+            <% comments.forEach(comment => { %>
+                <li>
+                    <p><strong><%= comment.commenter_name %></strong>: <%= comment.comment_text %></p>
+                    <p>Posted on: <%= comment.comment_date %></p>
+                </li>
+            <% }); %>
+        </ul>
+    <% } else { %>
+        <p>No comments yet.</p>
+    <% } %>
+
+    <a href="/reader-home">Back to Reader Home</a>
+</body>
+</html>

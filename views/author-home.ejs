@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/main.css" />
+    <!--CODES THAT I WROTE START-->
+    <title>Author Home</title>
+</head>
+<body>
+    <h1>Author Home</h1>
+    <h1>Welcome to <%= blogTitle %></h1>
+    <p>Written by <%= authorName %></p>
+    <h2>Draft Articles</h2>
+        <!--CODES THAT I WROTE END-->
+    <ul>
+        <% draftArticles.forEach(article => { %>
+            <li>
+                <strong><%= article.title %></strong>
+                <p><%= article.subtitle %></p>
+                <p>Created: <%= article.created_at %></p>
+                <a href="/edit-article/<%= article.article_id %>">Edit</a>
+                <form action="/author-home/publish/<%= article.article_id %>" method="POST">
+                    <button type="submit">Publish</button>
+                </form>
+                <form action="/author-home/delete/<%= article.article_id %>" method="POST">
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+        <% }); %>
+    </ul>
+<!--CODES THAT I WROTE START-->
+    <h2>Published Articles</h2>
+    <ul>
+        <% publishedArticles.forEach(article => { %>
+            <li>
+                <strong><%= article.title %></strong>
+                <p><%= article.subtitle %></p>
+                <p>Published: <%= article.published_at %></p>
+                <p>Last Modified: <%= article.updated_at %></p>
+                <p>Reads: <%= article.reads %></p>
+                <p>Likes: <%= article.likes %></p>
+                <form action="/author-home/delete-article/<%= article.article_id %>" method="POST">
+                    <button type="submit">Delete</button>
+                </form>
+                <form action="/reader-article/<%= article.article_id %>" method="GET">
+                    <button type="submit">View Article</button>
+                </form>
+            </li>
+        <% }); %>
+    </ul>
+
+    <a href="/edit-article">Create New Draft</a>
+    <a href="/author-settings">Edit Blog Settings</a>
+    <a href="/">Go to Homepage</a>
+    <!--CODES THAT I WROTE END-->
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  type="text/css" href="/main.css" />
+    <!--CODES THAT I WROTE START-->
+    <title>Reader Home</title>
+</head>
+<body>
+    <h1>Reader Home Page</h1>
+    <h1>Welcome to <%= blogTitle %></h1>
+    <p>Written by <%= authorName %></p>
+    <h1>Published Articles</h1>
+     <!--CODES THAT I WROTE END-->
+
+    <% if (articles.length > 0) { %>
+        <ul>
+            <% articles.forEach(article => { %>
+                <li>
+                    <h2><a href="/reader-article/<%= article.article_id %>"><%= article.title %></a></h2>
+                    <p><%= article.body %></p>
+                    <p>Published on: <%= article.published_at %></p>
+                </li>
+            <% }) %>
+        </ul>
+    <% } else { %>
+        <p>No published articles found.</p>
+    <% } %>
+    <!--CODES THAT I WROTE START-->
+    <a href="/">Go to Homepage</a>
+    <!--CODES THAT I WROTE END-->
+</body>
+</html>

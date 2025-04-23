@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  type="text/css" href="/main.css" />
+    <!--CODES THAT I WROTE START-->
+    <title>Author Settings Page</title>
+</head>
+<body>
+    <h1>Blog Settings</h1>
+    <h1>Welcome to <%= blogTitle %></h1>
+    <p>Written by <%= authorName %></p>
+    <h2><%= settings.blog_title %></h2>
+    <h3>Author: <%= settings.author_name %></h3>
+    <form action="/author-settings" method="POST">
+        <label for="blog_title">Blog Title:</label>
+        <input type="text" id="blog_title" name="blog_title" value="<%= settings.blog_title %>">
+        <br>
+        <label for="author_name">Author Name:</label>
+        <input type="text" id="author_name" name="author_name" value="<%= settings.author_name %>">
+        <br>
+        <button type="submit">Save Settings</button>
+    </form>
+    <button onclick="location.href='/author-home'">Back to Author Homepage</button>
+    <!--CODES THAT I WROTE END-->
+</body>
+</html>
