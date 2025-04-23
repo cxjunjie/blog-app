@@ -4,7 +4,6 @@ PRAGMA foreign_keys=ON;
 
 BEGIN TRANSACTION;
 
--- CODE THAT I WROTE START
 -- Add Settings table
 CREATE TABLE IF NOT EXISTS settings (
     id INTEGER PRIMARY KEY,
@@ -36,8 +35,7 @@ CREATE TABLE IF NOT EXISTS comments (
     FOREIGN KEY (article_id) REFERENCES articles(article_id) ON DELETE CASCADE -- Delete article along with comments attached
 );
 
--- CODE THAT I WROTE START
--- Insert default data (if necessary here)
+-- Insert default data
 INSERT INTO settings (blog_title, author_name) VALUES ('My DnW Blog', 'Chen Junjie');
 
 -- CODE THAT I WROTE END

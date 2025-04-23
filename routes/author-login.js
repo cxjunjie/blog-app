@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-// CODE THAT I WROTE START
 // Get request for author login form
 router.get('/', (req, res) => {
     res.render('author-login'); // Render author-login.ejs 
@@ -19,6 +18,5 @@ router.post('/', (req, res) => {
         res.render('author-login', { error: 'Invalid password' }); // Render login page again with invalid password
     }
 });
-// CODE THAT I WROTE END
 
 module.exports = router;

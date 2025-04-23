@@ -1,8 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-
-// CODE THAT I WROTE START
 // Fetch blog settings
 router.use((req, res, next) => {
     db.get('SELECT * FROM settings WHERE id = 1', (err, settings) => {
@@ -20,7 +18,6 @@ router.use((req, res, next) => {
         next();
     });
 });
-// CODE THAT I WROTE END
 
 // Route to display a specific article based on article_id
 router.get("/:id", (req, res) => {
@@ -70,7 +67,7 @@ router.post("/comment/:id", (req, res) => {
         res.redirect(`/reader-article/${articleId}`);
     });
 });
-// CODE THAT I WROTE START
+
 // Route to handle liking an article
 router.post("/like/:id", (req, res) => {
     const articleId = req.params.id;
@@ -85,5 +82,5 @@ router.post("/like/:id", (req, res) => {
         res.redirect(`/reader-article/${articleId}`);
     });
 });
-// CODE THAT I WROTE END
+
 module.exports = router;

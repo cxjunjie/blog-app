@@ -1,8 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-
-// CODE THAT I WROTE START
 // Fetch blog settings
 router.use((req, res, next) => {
     db.get('SELECT * FROM settings WHERE id = 1', (err, settings) => {
@@ -20,7 +18,6 @@ router.use((req, res, next) => {
         next();
     });
 });
-// CODE THAT I WROTE END
 
 // Route to display reader's homepage with all published articles
 router.get("/", (req, res) => {

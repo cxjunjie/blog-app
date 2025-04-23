@@ -18,7 +18,6 @@ router.use((req, res, next) => {
         next();
     });
 });
-// CODE THAT I WROTE START
 
 // Display settings page
 router.get("/", (req, res) => {
@@ -40,6 +39,5 @@ router.post("/", (req, res) => {
         }
     });
 });
-// CODE THAT I WROTE END
 
 module.exports = router;

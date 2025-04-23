@@ -1,12 +1,10 @@
 // Set up express, bodyparser and EJS
 const express = require('express');
 const app = express();
-// CODE THAT I WROTE START
 
 const session = require('express-session');
 const { isAuthenticated } = require('./middleware/auth');
 
-// CODE THAT I WROTE END
 const port = 3000;
 
 // Set up bodyparser for form submissions
@@ -19,7 +17,6 @@ app.set('view engine', 'ejs');
 // Set location of static files
 app.use(express.static(__dirname + '/public'));
 
-// CODE THAT I WROTE START
 // Set up express-session for handling user sessions
 app.use(session({
     secret: 'your_secret_key',
@@ -28,7 +25,6 @@ app.use(session({
     cookie: { secure: false }
 }));
 
-// CODE THAT I WROTE END
 // Set up SQLite
 // Items in the global namespace are accessible throught out the node application
 const sqlite3 = require('sqlite3').verbose();
@@ -42,7 +38,6 @@ global.db = new sqlite3.Database('./database.db',function(err){
     }
 });
 
-// CODE THAT I WROTE START
 // Handle requests to the home page 
 app.get('/', (req, res) => {
     // Fetch blog title and author name from settings table
@@ -75,8 +70,6 @@ app.use('/author-login', authorlogin);
 
 // Protected routes, need authentication
 app.use('/author-home', isAuthenticated, authorhome);
-
-// CODE THAT I WROTE END
 
 // Make the web application listen for HTTP requests
 app.listen(port, () => {

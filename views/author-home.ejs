@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/main.css" />
-    <!--CODES THAT I WROTE START-->
     <title>Author Home</title>
 </head>
 <body>
@@ -12,7 +11,6 @@
     <h1>Welcome to <%= blogTitle %></h1>
     <p>Written by <%= authorName %></p>
     <h2>Draft Articles</h2>
-        <!--CODES THAT I WROTE END-->
     <ul>
         <% draftArticles.forEach(article => { %>
             <li>
@@ -29,7 +27,6 @@
             </li>
         <% }); %>
     </ul>
-<!--CODES THAT I WROTE START-->
     <h2>Published Articles</h2>
     <ul>
         <% publishedArticles.forEach(article => { %>
@@ -53,6 +50,5 @@
     <a href="/edit-article">Create New Draft</a>
     <a href="/author-settings">Edit Blog Settings</a>
     <a href="/">Go to Homepage</a>
-    <!--CODES THAT I WROTE END-->
 </body>
 </html>

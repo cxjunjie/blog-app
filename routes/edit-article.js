@@ -1,8 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-
-// CODE THAT I WROTE START
 // Fetch blog settings
 router.use((req, res, next) => {
     db.get('SELECT * FROM settings WHERE id = 1', (err, settings) => {
@@ -20,7 +18,7 @@ router.use((req, res, next) => {
         next();
     });
 });
-// CODE THAT I WROTE END
+
 // Display the edit article page
 router.get("/:id?", (req, res) => {
     const articleId = req.params.id;
@@ -42,7 +40,7 @@ router.get("/:id?", (req, res) => {
         });
     }
 });
-// CODE THAT I WROTE START
+
 // Handle form submission for creating or updating an article
 router.post("/:id?", (req, res) => {
     const articleId = req.params.id;
@@ -69,7 +67,5 @@ router.post("/:id?", (req, res) => {
             });
     }
 });
-
-// CODE THAT I WROTE END
 
 module.exports = router;
